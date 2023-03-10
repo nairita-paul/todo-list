@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+.input-field {
+  margin: auto;
+}
+
+.isChecked {
+  text-decoration: line-through;
+}

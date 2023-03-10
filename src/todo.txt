@@ -1,0 +1,15 @@
+- display html elements hardcode
+- add a onChange event handler on the input field
+- create a react state for the input field -> StateA
+- connect the input field with the state
+- add onClick event handler to the 'add' button
+- move the displayed value on the input field to the list at the bottom
+    - dynamically display the html list items
+        - create a new react state for storing the list items in memory -> StateB
+        - map over the StateB to render the list items
+
+- add a onChange event handler on the checkbox inside the list
+- the onChange handler will need to update the individiual list items to show the style change(linethrough)
+- add onClick event handler for the delete button
+- the onClick handler will need to remove items from StateB
+
