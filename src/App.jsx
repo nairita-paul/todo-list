@@ -21,11 +21,11 @@ export default function App() {
     setInputItem({ value: "", isChecked: false });
   }
 
-  function handleCheck(event, checkIndex) {
+  function handleCheck(checkEvent, checkIndex) {
     setArrItems((prevItems) => {
       const newArr = prevItems.map((item, index) => {
         if (index == checkIndex) {
-          item.isChecked = event.target.checked;
+          item.isChecked = checkEvent.target.checked;
         }
         return item;
       });
@@ -49,7 +49,7 @@ export default function App() {
       >
         <input
           type={"checkbox"}
-          onChange={(qweqwe) => handleCheck(qweqwe, index)}
+          onChange={(event) => handleCheck(event, index)}
         />
         {item.value}
         <button onClick={() => deleteData(index)}>X</button>
@@ -64,7 +64,7 @@ export default function App() {
         type="text"
         placeholder="Enter your list"
         value={inputItem.value}
-        onChange={(e) => handleChange(e)}
+        onChange={handleChange}
       />
       <button onClick={add}>Add</button>
       <ul>{listItems}</ul>
