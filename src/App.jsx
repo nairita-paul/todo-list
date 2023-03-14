@@ -1,24 +1,15 @@
 import "./App.css";
 import React from "react";
+import Input from "./Input";
+import List from "./List";
 export default function App() {
-  const [inputItem, setInputItem] = React.useState({
-    value: "",
-    isChecked: false,
-  });
   const [arrItems, setArrItems] = React.useState([]);
 
-  function handleChange(event) {
-    setInputItem({
-      value: event.target.value,
-    });
-  }
-
-  function add() {
+  function add(inputItem) {
     if (!inputItem.value) return;
     setArrItems((prevItems) => {
       return [...prevItems, inputItem];
     });
-    setInputItem({ value: "", isChecked: false });
   }
 
   function handleCheck(checkEvent, checkIndex) {
@@ -40,34 +31,12 @@ export default function App() {
     });
   }
 
-  const listItems = arrItems.map((item, index) => {
-    return (
-      <li
-        key={index}
-        className={item.isChecked ? "isChecked" : ""}
-        style={{ listStyle: "none" }}
-      >
-        <input
-          type={"checkbox"}
-          onChange={(event) => handleCheck(event, index)}
-        />
-        {item.value}
-        <button onClick={() => deleteData(index)}>X</button>
-      </li>
-    );
-  });
-
   return (
     <main>
       <h1>To do list</h1>
-      <input
-        type="text"
-        placeholder="Enter your list"
-        value={inputItem.value}
-        onChange={handleChange}
-      />
-      <button onClick={add}>Add</button>
-      <ul>{listItems}</ul>
+      <Input handleClick={add} />
+
+      <List data={arrItems} handleCheck={handleCheck} deleteData={deleteData} />
     </main>
   );
 }
